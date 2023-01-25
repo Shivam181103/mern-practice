@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require('dotenv').config()
 // This is your test secret API key.
 const stripe = require("stripe")('sk_test_51MTfvoSIO9jwyVmqrRp5fXy5CuMjrdavZYvpx8CWyjChluxapXyLhyfm2WkSA3KHpgcQUxiJiHpTN0bws6ZRoMVS00E8dEUa36');
 
@@ -32,4 +33,4 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.listen(4242, () => console.log("Node server listening on port 4242!"));
+app.listen(process.env.PORT||4242, () => console.log("Node server listening on port 4242!"));
